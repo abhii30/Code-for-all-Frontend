@@ -1,5 +1,5 @@
-.CodeChefMain{
-    background-color: #f6f8fb;
-    height: 100vh;
-    margin-top: 3px;
+.CodeChefMain {
+  background-color: #f6f8fb;
+  padding-top: 1%;
+  min-height: 90vh;
 }

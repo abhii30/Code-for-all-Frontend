@@ -12,7 +12,7 @@ function NavBar() {
 
   return (
     <React.Fragment>
-      <div>
+      <div className={styles.container}>
         <nav className={styles.navbar}>
           <Link to="/" className={styles.heading}>
             Home
@@ -36,7 +36,7 @@ function NavBar() {
           )}
         </nav>
         {ctx.isLoggedIn && (
-          <Link to='/' className={styles.logoutButtonLink}>
+          <Link to="/" className={styles.logoutButtonLink}>
             <button
               className={`${styles.uploadContestButton} ${styles.logoutButton}`}
               onClick={logoutHandler}

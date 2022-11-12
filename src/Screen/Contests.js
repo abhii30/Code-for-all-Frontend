@@ -15,26 +15,23 @@ function Contests() {
     }
     getData();
   }, []);
-  const renderContests = response.map(
-    item =>
-      !item.ongoing
-        ? <div key={item._id} className={styles.contestLinks}>
-            <h4>
-              {item.organiser.toUpperCase()}
-            </h4>
-            <Link to={`/question/${item._id}`} state={{ contest: item }}>
-              {item.contestname}
-            </Link>
-          </div>
-        : ""
+  const renderContests = response.map((item) =>
+    !item.ongoing ? (
+      <div key={item._id} className={styles.contestLinks}>
+        <h4>{item.organiser.toUpperCase()}</h4>
+        <Link to={`/question/${item._id}`} state={{ contest: item }}>
+          {item.contestname}
+        </Link>
+      </div>
+    ) : (
+      ""
+    )
   );
 
   return (
     <div className={styles.contestsMain}>
       <h2>Past Contests</h2>
-      <div className={styles.contestNames}>
-        {renderContests}
-      </div>
+      <div className={styles.contestNames}>{renderContests}</div>
     </div>
   );
 }
