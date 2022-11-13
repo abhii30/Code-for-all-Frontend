@@ -12,6 +12,9 @@ import UploadQuestion from "./Pages/UploadQuestion";
 import AuthContext from "./Store/auth-context";
 import Solution from "./Pages/Solution";
 import Error from "./Screen/Error";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   const ctx = useContext(AuthContext);
 
@@ -19,20 +22,22 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-        <Route path="*" element={<Error />}></Route>
+          <Route path="*" element={<Error />}></Route>
           <Route path="/" element={<Dashboard />} />
           <Route path="/codechef" element={<CodeChef />} />
           <Route path="/codeforce" element={<CodeForce />} />
           <Route path="/leetcode" element={<LeetCode />} />
           <Route path="/question/:contestid" element={<Questions />} />
           <Route path="/login" element={<LoginPage />} />
-          {ctx.isLoggedIn &&
-            <Route path="/upload/contest" element={<UploadContest />} />}
-          {ctx.isLoggedIn &&
+          {ctx.isLoggedIn && (
+            <Route path="/upload/contest" element={<UploadContest />} />
+          )}
+          {ctx.isLoggedIn && (
             <Route
               path="/upload/question/:contestid"
               element={<UploadQuestion />}
-            />}
+            />
+          )}
           <Route path="/solution/:questionId" element={<Solution />} />
         </Routes>
       </div>
